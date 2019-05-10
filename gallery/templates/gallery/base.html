@@ -11,8 +11,10 @@
     {% block styles %}
        {% bootstrap_css %}
     {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'gallery/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Caveat|Indie+Flower" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#c8e6f5;">
     {% block content %}
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
         <a class="navbar-brand" href="#">Navbar</a>
