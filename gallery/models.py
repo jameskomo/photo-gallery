@@ -7,16 +7,17 @@ class Image(models.Model):
     image_location = models.CharField(default="", max_length = 30) 
     image_category = models.CharField(default="", max_length = 30)
     pub_date = models.DateTimeField(auto_now_add=True)
+    photo_image = models.ImageField(default="", upload_to = 'images/')
 
     def __str__(self):
-        return self.name
+        return self.image_name
     
 
 class Category(models.Model):
     image_category =  models.ForeignKey(Image, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.image_category
 
 class tags(models.Model):
     name = models.CharField(max_length =30)
@@ -29,5 +30,5 @@ class Location(models.Model):
     tags = models.ManyToManyField(tags)
 
     def __str__(self):
-        return self.name
+        return self.image_location
 
