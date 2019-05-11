@@ -1,0 +1,63 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+{{block.super}}
+<div class="row images">
+
+  <!-- Looping through news   -->
+  {% for image in images %}
+  <!-- Card -->
+  <div class="card col-xs-3 col-sm-3 col-md-3 col-lg-3" style="width: 28rem;">
+    <img class="card-img-top" src="{% if image.photo_image %}{{ image.photo_image.url }}{% else %}#{% endif %}" alt="Gallery Image">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Image Name:</strong>  {{image.image_name}}</h5>
+      
+    </div>
+    
+    <!-- Modal to Display Photo Details -->
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  View Details
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><strong> Image Title:</strong> {{image.image_name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="card-text"><strong>Description:</strong> <br>{{image.image_description}}</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Location: </strong> {{image.image_location}}</li>
+            <li class="list-group-item"><strong>Category:</strong> {{image.image_category}}</li>
+            <li class="list-group-item"><strong>Date:</strong> {{image.pub_date}}</li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Modal ends here -->
+  </div>
+
+
+  
+  {% endfor %}
+
+  <!-- Card ends here -->  
+</div>
+{% endblock%}
+
+
+
+
