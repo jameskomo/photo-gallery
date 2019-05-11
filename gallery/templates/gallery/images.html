@@ -12,11 +12,12 @@
     <div class="card-body">
       <h5 class="card-title"><strong>Image Name:</strong>  {{image.image_name}}</h5>
       
-    </div>
-    
-    <!-- Modal to Display Photo Details -->
-      <!-- Button trigger modal -->
-<button id="zoom" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    </div>    
+    <!-- Modal to Display Photo Details --> 
+      
+      <input type="text" value="127.0.0.1:8000/media/images/{{ image.photo_image.url }}" id="myInput">
+      <button onclick="myFunction()">Copy Link</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   View Details
 </button>
 

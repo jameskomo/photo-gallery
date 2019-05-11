@@ -5,3 +5,6 @@ h1 {
     font-family: 'Baloo Bhai', cursive;
     font-size: 30px;
 }
+#myInput {
+    display: none;
+}
