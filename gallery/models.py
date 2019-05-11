@@ -6,13 +6,13 @@ class Image(models.Model):
     image_name=models.CharField(max_length=60)
     image_description = models.TextField()
     image_location = models.CharField(default="", max_length = 30) 
-    image_category = models.CharField(default="", max_length = 30)
+    image_category = models.CharField(default="", choices=[('Music', 'Music'), ('Travel', 'Travel'), ('Food', 'Food')], max_length = 30)
     pub_date = models.DateTimeField(auto_now_add=True)
     photo_image = models.ImageField(default="", upload_to = 'images/')
 
     @classmethod
-    def search_by_image_name(cls,search_term):
-        images = cls.objects.filter(image_name__icontains=search_term)
+    def search_by_image_category(cls,search_term):
+        images = cls.objects.filter(image_category__icontains=search_term)
         return images
 
     def __str__(self):

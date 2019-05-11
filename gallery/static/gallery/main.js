@@ -11,4 +11,3 @@ function myFunction() {
   /* Alert the copied text */
   alert("Link Copied: " + copyText.value);
 }
-document.Get
