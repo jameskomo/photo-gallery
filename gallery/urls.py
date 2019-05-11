@@ -8,7 +8,9 @@ urlpatterns=[
     path('', views.home, name='gallery-home'),
     path('about/', views.about, name='gallery-about'),
     path('images/', views.images, name='gallery-images'),
-    path('imagedetails/', views.imagedetails, name='gallery-imagedetails'),
+    url(r'^search/', views.search_results, name='search_results'),
+    
+    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

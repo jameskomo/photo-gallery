@@ -10,6 +10,11 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     photo_image = models.ImageField(default="", upload_to = 'images/')
 
+    @classmethod
+    def search_by_image_name(cls,search_term):
+        images = cls.objects.filter(image_name__icontains=search_term)
+        return images
+
     def __str__(self):
         return self.image_name
     
