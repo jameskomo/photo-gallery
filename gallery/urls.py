@@ -8,6 +8,7 @@ urlpatterns=[
     path('', views.images, name='gallery-home'),
     path('about/', views.about, name='gallery-about'),
     path('images/', views.images, name='gallery-images'),
+    path('location/', views.images_by_location, name='gallery-location'),
     url(r'^search/', views.search_results, name='search_results'),
     
     

@@ -15,12 +15,18 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
+    def save_image(self):
+        self.save()
     class Meta:
         ordering = ['image_name']    
 
     @classmethod
     def search_by_image_category(cls,search_term):
         images = cls.objects.filter(image_category__icontains=search_term)
+        return images
+    @classmethod
+    def todays_images(cls,date):
+        images = cls.objects.filter(pub_date__date = date)
         return images
 
     

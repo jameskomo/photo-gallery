@@ -29,4 +29,11 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'gallery/search.html',{"message":message})
 
+def images_by_location(request,image_location):
+    try:
+        image = Image.objects.get(location = image_location)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"gallery/images_by_location.html", {"image":image})
+
 
