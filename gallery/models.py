@@ -2,7 +2,7 @@ from django.db import models
 import datetime as dt 
 
 # Create your models here.
-class Image(models.Model):
+class Image(models.Model):    
     image_name=models.CharField(max_length=60)
     image_description = models.TextField()
     image_location = models.CharField(default="", max_length = 30) 
@@ -10,13 +10,19 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     photo_image = models.ImageField(default="", upload_to = 'images/')
 
+    def __str__(self):
+        return self.image_name
+
+    def save_image(self):
+        self.save()
+    class Meta:
+        ordering = ['image_name']    
+
     @classmethod
     def search_by_image_category(cls,search_term):
         images = cls.objects.filter(image_category__icontains=search_term)
         return images
 
-    def __str__(self):
-        return self.image_name
     
 
 class Category(models.Model):
