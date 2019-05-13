@@ -15,6 +15,11 @@ def images(request):
         'images':Image.objects.all()
     }
     return render (request, 'gallery/images.html', context)
+def categories(request):
+    context = {
+        'categories':Category.objects.all()
+    }
+    return render (request, 'gallery/images.html', context)
 
 def search_results(request):
 
