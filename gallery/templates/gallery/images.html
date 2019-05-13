@@ -10,22 +10,15 @@
 
         <div class="col-md-3">
             <!-- modal button -->
-            <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#myModal{{post.id}}">
+            <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#myModal{{image.id}}">
                 <img src="{% if image.photo_image %}{{ image.photo_image.url }}{% else %}#{% endif %}" alt="Gallery Image" width="300" height="300">
                 <p>{{image.image_name }}</p>
             </button>
             <br>
 
             <!-- modal -->
-        </div>
-
-
-        {% endfor %}
-    </div>
-</div>
-{% for image in images %}
-<!-- modal content -->
-<div class="modal" id="myModal{{post.id}}" role="dialog">
+            <!-- modal content -->
+<div class="modal" id="myModal{{image.id}}" role="dialog">
     <div class="modal-dialog">
 
         <div class="modal-content">
@@ -35,9 +28,13 @@
             </div>
 
             <div class="modal-body">
-                <img src="{{image.photo_image.url }}" alt="" width="300" height="300">
-                <p class="xx" style="font-family: 'Modak', cursive;" ><strong>Category: </strong>{{ image.image_category }}</p>
+                <img src="{{image.photo_image.url }}" alt="" width="100%" height="100%">
+                <br>
+                <p><strong>Image Name: </strong>{{image.image_name }}</p>
+                <p><strong>Category: </strong>{{ image.image_category }}</p>
+                <br>
                 <h5 class="modal-title"><strong>Image Description: </strong>{{ image.image_description }}</h5>
+                <br>
                 <p><strong>Location: </strong>{{ image.image_location }}</p>
               
             </div>
@@ -51,6 +48,10 @@
         </div>
     </div>
 </div>
+        </div>
+
 {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

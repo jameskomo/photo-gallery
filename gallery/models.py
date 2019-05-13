@@ -15,8 +15,13 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
-    def save_image(self):
-        self.save()
+    
+    def delete_image(self):
+        Image.objects.filter(id = self.pk).delete() 
+    
+    def update_image(self, **kwargs):
+        self.objects.filter(id = self.pk).update(**kwargs)
+
     class Meta:
         ordering = ['image_name']    
 
@@ -32,7 +37,7 @@ class Image(models.Model):
     
 
 class Category(models.Model):
-    image_category =  models.ForeignKey(Image, on_delete=models.CASCADE)
+    image_category =  models.ForeignKey(Image, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.image_category
