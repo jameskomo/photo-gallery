@@ -63,6 +63,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 INSTALLED_APPS = [
     'bootstrap4',
+    'herokuapp',
     'gallery.apps.GalleryConfig',
     'django.contrib.admin',
     'django.contrib.auth',

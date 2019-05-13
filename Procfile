@@ -1,1 +1,1 @@
-web: gunicorn komo-gallery.wsgi --log-file -
+web: gunicorn photo-gallery.wsgi --log-file -
